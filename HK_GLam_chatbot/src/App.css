@@ -1,0 +1,23 @@
+button {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.btn {
+  padding: 10px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+.react-chatbot-kit-chat-container {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.react-chatbot-kit-chat-header {
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+}
