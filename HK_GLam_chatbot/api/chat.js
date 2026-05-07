@@ -1,4 +1,9 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.GROQ_API_KEY,
+  baseURL: "https://api.groq.com/openai/v1",
+});
 
 export default async function handler(req, res) {
 
@@ -10,44 +15,47 @@ export default async function handler(req, res) {
 
   try {
 
-    const genAI = new GoogleGenerativeAI(
-      process.env.GEMINI_API_KEY
-    );
+    const { message } = req.body;
 
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
-    });
+    const completion =
+      await client.chat.completions.create({
+        model: "llama-3.3-70b-versatile",
 
-    const userMessage = req.body.message;
-
-    const prompt = `
+        messages: [
+          {
+            role: "system",
+            content: `
 You are HK Glam Studio assistant.
 
-Business Info:
+Business Details:
 - Location: Roorkee
-- Timings: 11 AM to 8 PM
+- Timing: 11 AM to 8 PM
 - Phone: 8868063466
+- Website: https://www.hkglamstudio.com
 
-Customer Message:
-${userMessage}
+Be friendly and professional.
+Keep answers short and helpful.
+`,
+          },
+          {
+            role: "user",
+            content: message,
+          },
+        ],
+      });
 
-Respond professionally and briefly.
-`;
+    const reply =
+      completion.choices[0].message.content;
 
-    const result = await model.generateContent(prompt);
-
-    const response = result.response.text();
-
-    res.status(200).json({
-      reply: response,
-    });
+    res.status(200).json({ reply });
 
   } catch (error) {
 
-    console.log(error);
+    console.log("FULL BACKEND ERROR:", error);
 
-    res.status(500).json({
+    return res.status(500).json({
       reply: "AI error occurred",
+      error: error.message,
     });
   }
 }

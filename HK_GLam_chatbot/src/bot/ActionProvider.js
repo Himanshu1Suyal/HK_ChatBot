@@ -45,8 +45,9 @@ class ActionProvider {
     });
 
     console.log("Response status:", res.status);
+    const text = await res.text();
 
-    const data = await res.json();
+    const data = JSON.parse(text);
 
     console.log("AI DATA:", data);
 
