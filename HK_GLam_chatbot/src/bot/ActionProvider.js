@@ -32,7 +32,9 @@ class ActionProvider {
 
 handleAIResponse = async (userMessage) => {
   try {
-    const res = await fetch("http://localhost:5000/chat", {
+    const API_URL =
+    window.location.hostname === "localhost" ? "http://localhost:5000/chat": "/api/chat"; 
+    const res = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
