@@ -19,6 +19,8 @@ dist-ssr
 .DS_Store
 .env
 .env.local
+server/node_modules
+server/.env
 node_modules
 dist
 *.suo
