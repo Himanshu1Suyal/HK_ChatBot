@@ -29,34 +29,46 @@ class ActionProvider {
 
     this.updateChatbotState(message);
   };
-
-handleAIResponse = async (userMessage) => {
+  handleAIResponse = async (userMessage) => {
   try {
-    const API_URL =
-    window.location.hostname === "localhost" ? "http://localhost:5000/chat": "/api/chat"; 
+
+    console.log("Sending message:", userMessage);
+    const API_URL = window.location.hostname === "localhost" ? "http://localhost:5000/chat" : "/api/chat";
     const res = await fetch(API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ message: userMessage }),
+      body: JSON.stringify({
+        message: userMessage,
+      }),
     });
+
+    console.log("Response status:", res.status);
 
     const data = await res.json();
 
+    console.log("AI DATA:", data);
+
     const message = this.createChatBotMessage(data.reply);
+
     this.updateChatbotState(message);
+
   } catch (error) {
+
+    console.log("FRONTEND ERROR:", error);
+
     const message = this.createChatBotMessage(
       "Sorry, something went wrong."
     );
+
     this.updateChatbotState(message);
   }
 };
 
   updateChatbotState(message) {
     this.setState((prev) => ({
-      ...prev,
+      ...prev, 
       messages: [...prev.messages, message],
     }));
   }
