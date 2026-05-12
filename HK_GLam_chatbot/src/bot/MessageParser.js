@@ -15,6 +15,20 @@ class MessageParser {
   }
 
   else if (
+  msg.includes("Closes") ||
+  msg.includes("Closed") ||
+  msg.includes("closing")
+) {
+
+  const botMessage =
+    this.actionProvider.createChatBotMessage(
+      "We closed at 8 PM. Please contact us during our working hours for any assistance 😊"
+    );
+
+  this.actionProvider.updateChatbotState(botMessage);
+}
+
+  else if (
   msg.includes("instagram") ||
   msg.includes("insta") ||
   msg.includes("social media")
@@ -52,6 +66,26 @@ class MessageParser {
   ) {
     this.actionProvider.handlePricing();
   }
+
+  else if (
+  msg.includes("map") ||
+  msg.includes("location") ||
+  msg.includes("google map")
+) {
+
+  const botMessage =
+    this.actionProvider.createChatBotMessage(
+      `📍 Find us on Google Maps 👇
+      <a href="https://maps.app.goo.gl/HxVQucxyzBTHukhKA" target="_blank">
+      Open Location
+      </a>`,
+      {
+        withAvatar: true,
+      }
+    );
+
+  this.actionProvider.updateChatbotState(botMessage);
+}
 
   // BOOKING
   else if (

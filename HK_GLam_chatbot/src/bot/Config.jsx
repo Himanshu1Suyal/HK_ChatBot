@@ -9,6 +9,16 @@ const config = {
       widget: "options",
     }),
   ],
+  
+  // ADD THIS SECTION
+  customComponents: {
+    botChatMessage: (props) => (
+      <div
+        className="react-chatbot-kit-chat-bot-message"
+        dangerouslySetInnerHTML={{ __html: props.message }}
+      />
+    ),
+  },
 
   widgets: [
     {
@@ -46,11 +56,20 @@ const config = {
           <ul style={{ paddingLeft: "20px" }}>
             <li>✂️ Haircut</li>
             <li>🌿 Facial</li>
-            <li>💃 Bridal Makeup</li>
+            <li>👰 Bridal Makeup</li>
             <li>💃 Party Makeup</li>
             <li>💅 Nail Art</li>
             <li>✨ Smoothing</li>
-            <li>✨ Keratin</li>
+            <li>🌟 Keratin</li>
+            <li>✨ Botox</li>
+            <li>💇 Hairstyle</li>
+            <li>🧴 Full body Wax</li>
+            <li>🦵 Half Legs wax</li>
+            <li>🎨 Hair colour</li>
+            <li>✨ Hair Root touchup</li>
+            <li>💫 KeraSmooth</li>
+            <li>✨ Threading</li>
+
           </ul>
         </div>
       ),
@@ -63,9 +82,19 @@ const config = {
           <ul style={{ paddingLeft: "20px" }}>
             <li>✂️ Haircut: ₹300</li>
             <li>🌿 Facial: ₹500 onwards</li>
+            <li>👰 Bridal Makeup: ₹6000 onwards</li>
             <li>💃 Party Makeup: ₹1500 onwards</li>
             <li>💅 Nail Art: ₹700 onwards</li>
             <li>✨ Smoothing: ₹2000 onwards</li>
+            <li>🌟 Keratin: ₹1999 owards</li>
+            <li>✨ Botox 2499 onwards</li>
+            <li>💇 Hairstyle 500</li>
+            <li>🧴 Full body Wax 2500</li>
+            <li>🦵 Half Legs wax 300</li>
+            <li>🎨 Hair colour 2000</li>
+            <li>✨ Hair Root touchup 500</li>
+            <li>💫 KeraSmooth 2000 onwards</li>
+            <li>✨ Threading 30</li>
           </ul>
         </div>
       ),

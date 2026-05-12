@@ -31,6 +31,8 @@ Business Details:
 - Location: Dhandera,Roorkee
 - Timing: 11 AM to 8 PM
 - Phone: 8868063466
+- Owners: Karishma and Himanshu
+- Makeup Artists: We have Trained proffessionals with more than 10+ years of experience.
 - Website: https://www.hkglamstudio.com
 - Prices are negotiable and depend on the service and the client's requirements. For accurate pricing, please contact us directly.
 - Instagram: https://www.instagram.com/hk_glam_studio/
