@@ -76,6 +76,26 @@ const config = {
     },
 
     {
+      widgetName: "googleMapLink",
+      widgetFunc: () => (
+        <div>
+          <a
+            href="https://maps.app.goo.gl/HxVQucxyzBTHukhKA"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#110f0f",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            Click here to open location
+          </a>
+        </div>
+      ),
+    },
+
+    {
       widgetName: "pricingList",
       widgetFunc: () => (
         <div style={{ textAlign: "left" }}>
@@ -96,6 +116,46 @@ const config = {
             <li>💫 KeraSmooth 2000 onwards</li>
             <li>✨ Threading 30</li>
           </ul>
+        </div>
+      ),
+    },
+
+    {
+      widgetName: "instagramLink",
+      widgetFunc: () => (
+        <div>
+          <a
+            href="https://www.instagram.com/hk_glam_studio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#0f0e0e",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            Click here to visit our Instagram
+          </a>
+        </div>
+      ),
+    },
+
+    {
+      widgetName: "websiteLink",
+      widgetFunc: () => (
+        <div>
+          <a
+            href="https://www.hkglamstudio.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#0f0e0e",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            Click here to open the website
+          </a>
         </div>
       ),
     },

@@ -29,6 +29,19 @@ class ActionProvider {
 
     this.updateChatbotState(message);
   };
+
+  askForBookingConfirmation = () => {
+
+  const message = this.createChatBotMessage(
+    "Would you like to book an appointment?"
+  );
+
+  this.setState((prev) => ({
+    ...prev,
+    expectingBookingConfirmation: true,
+    messages: [...prev.messages, message],
+  }));
+};
   handleAIResponse = async (userMessage) => {
   try {
 

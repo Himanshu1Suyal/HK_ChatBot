@@ -5,6 +5,7 @@ class MessageParser {
 
   parse(message) {
     const msg = message.toLowerCase();
+    
 
  // SERVICES
   if (
@@ -33,23 +34,15 @@ class MessageParser {
   msg.includes("insta") ||
   msg.includes("social media")
 ) {
-   const botMessage =
-    this.actionProvider.createChatBotMessage(
-      `📍 You can visit our instagram page👇
-      <a href="https://www.instagram.com/hk_glam_studio/" target="_blank" style="
-        color: white;
-        font-weight: bold;
-        text-decoration: underline;
-      ">
-      Click here to visit our Instagram!!!
-      </a>`,
-      {
-        withAvatar: true,
-      }
-    );
-
+   const botMessage = this.actionProvider.createChatBotMessage(
+    "📸 You can visit our Instagram page 👇",
+    {
+      widget: "instagramLink",
+    }
+  );
 
   this.actionProvider.updateChatbotState(botMessage);
+   return; // IMPORTANT
 }
 
   // NEGOTIABLE  ← MOVE THIS ABOVE PRICING
@@ -67,28 +60,24 @@ class MessageParser {
     this.actionProvider.updateChatbotState(botMessage);
   }
 
-  else if (msg.includes("website") || 
-          msg.includes("web") || 
-          msg.includes("site")
-        ) {
+    else if (
+      msg.includes("website") ||
+      msg.includes("web") ||
+      msg.includes("site")
+    ) {
 
-  const botMessage =
-    this.actionProvider.createChatBotMessage(
-      `📍 We have dedicated website for online booking and services 👇
-      <a href="https://www.hkglamstudio.com/" target="_blank" style="
-        color: white;
-        font-weight: bold;
-        text-decoration: underline;
-      ">
-      Click here to open the website
-      </a>`,
-      {
-        withAvatar: true,
-      }
-    );
+      const botMessage =
+        this.actionProvider.createChatBotMessage(
+          "🌐 Visit our official website 👇",
+          {
+            widget: "websiteLink",
+          }
+        );
 
-  this.actionProvider.updateChatbotState(botMessage);
-}
+      this.actionProvider.updateChatbotState(botMessage);
+
+      return;
+    }
 
   // PRICING
   else if (
@@ -106,22 +95,16 @@ class MessageParser {
   msg.includes("google map")
 ) {
 
-  const botMessage =
-    this.actionProvider.createChatBotMessage(
-      `📍 Find us on Google Maps 👇
-      <a href="https://maps.app.goo.gl/HxVQucxyzBTHukhKA" target="_blank" style="
-        color: white;
-        font-weight: bold;
-        text-decoration: underline;
-      ">
-      Click here to open location
-      </a>`,
-      {
-        withAvatar: true,
-      }
-    );
+  const message = this.actionProvider.createChatBotMessage(
+    "📍 Find us on Google Maps 👇",
+    {
+      widget: "googleMapLink",
+    }
+  );
 
-  this.actionProvider.updateChatbotState(botMessage);
+  this.actionProvider.updateChatbotState(message);
+
+  return; // IMPORTANT
 }
 
   // BOOKING
@@ -131,6 +114,24 @@ class MessageParser {
   ) {
     this.actionProvider.handleBooking();
   }
+
+  // Location
+if (
+  msg.includes("location") ||
+  msg.includes("address") ||
+  msg.includes("where is") ||
+  msg.includes("where are you") ||
+  msg.includes("salon")
+) {
+
+  const message = this.actionProvider.createChatBotMessage(
+    "📍 HK Glam Studio is located in Dhandera, Roorkee.\n🕒 Timings: 11 AM to 8 PM"
+  );
+
+  this.actionProvider.updateChatbotState(message);
+
+  return;
+}
 
   // AI
   else {
