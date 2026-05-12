@@ -33,11 +33,21 @@ class MessageParser {
   msg.includes("insta") ||
   msg.includes("social media")
 ) {
-
-  const botMessage =
+   const botMessage =
     this.actionProvider.createChatBotMessage(
-      "📸 Follow us on Instagram 👇\nhttps://www.instagram.com/hk_glam_studio/"
+      `📍 You can visit our instagram page👇
+      <a href="https://www.instagram.com/hk_glam_studio/" target="_blank" style="
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      ">
+      Click here to visit our Instagram!!!
+      </a>`,
+      {
+        withAvatar: true,
+      }
     );
+
 
   this.actionProvider.updateChatbotState(botMessage);
 }
@@ -56,6 +66,29 @@ class MessageParser {
 
     this.actionProvider.updateChatbotState(botMessage);
   }
+
+  else if (msg.includes("website") || 
+          msg.includes("web") || 
+          msg.includes("site")
+        ) {
+
+  const botMessage =
+    this.actionProvider.createChatBotMessage(
+      `📍 We have dedicated website for online booking and services 👇
+      <a href="https://www.hkglamstudio.com/" target="_blank" style="
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      ">
+      Click here to open the website
+      </a>`,
+      {
+        withAvatar: true,
+      }
+    );
+
+  this.actionProvider.updateChatbotState(botMessage);
+}
 
   // PRICING
   else if (
@@ -76,8 +109,12 @@ class MessageParser {
   const botMessage =
     this.actionProvider.createChatBotMessage(
       `📍 Find us on Google Maps 👇
-      <a href="https://maps.app.goo.gl/HxVQucxyzBTHukhKA" target="_blank">
-      Open Location
+      <a href="https://maps.app.goo.gl/HxVQucxyzBTHukhKA" target="_blank" style="
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      ">
+      Click here to open location
       </a>`,
       {
         withAvatar: true,
