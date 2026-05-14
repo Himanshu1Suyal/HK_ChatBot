@@ -1,6 +1,5 @@
 import React from "react";
 import { createChatBotMessage } from "react-chatbot-kit";
-import BookingLink from "./BookingLink";
 
 const config = {
   initialMessages: [
@@ -41,7 +40,7 @@ const config = {
 
           <button 
             className="btn btn-dark rounded-pill"
-            onClick={() => window.open("https://www.hkglamstudio.com", "_blank")}
+            onClick={() => props.actionProvider.handleBooking()}
           >
             📅 Book Appointment
           </button>
@@ -158,11 +157,6 @@ const config = {
           </a>
         </div>
       ),
-    },
-
-    {
-      widgetName: "bookingLink",
-      widgetFunc: () => <BookingLink />,
     },
   ],
 };

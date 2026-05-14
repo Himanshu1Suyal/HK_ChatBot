@@ -13,6 +13,7 @@ class MessageParser {
     msg.includes("services")
   ) {
     this.actionProvider.handleServices();
+      return; //
   }
 
   else if (
@@ -27,6 +28,8 @@ class MessageParser {
     );
 
   this.actionProvider.updateChatbotState(botMessage);
+
+   return; //
 }
 
   else if (
@@ -58,6 +61,7 @@ class MessageParser {
       );
 
     this.actionProvider.updateChatbotState(botMessage);
+     return; //
   }
 
     else if (
@@ -87,6 +91,7 @@ class MessageParser {
     msg.includes("rate")
   ) {
     this.actionProvider.handlePricing();
+     return; //
   }
 
   else if (
@@ -113,6 +118,7 @@ class MessageParser {
     msg.includes("appointment")
   ) {
     this.actionProvider.handleBooking();
+    return;
   }
 
   // Location

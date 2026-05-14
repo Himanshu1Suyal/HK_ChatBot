@@ -21,27 +21,12 @@ class ActionProvider {
 
     handleBooking = () => {
     const message = this.createChatBotMessage(
-      "Click below to book your appointment 👇",
-      {
-        widget: "bookingLink",
-      }
+      "Close the chat window and Press the `Book Appointment` button on top right",
     );
 
     this.updateChatbotState(message);
   };
 
-  askForBookingConfirmation = () => {
-
-  const message = this.createChatBotMessage(
-    "Would you like to book an appointment?"
-  );
-
-  this.setState((prev) => ({
-    ...prev,
-    expectingBookingConfirmation: true,
-    messages: [...prev.messages, message],
-  }));
-};
   handleAIResponse = async (userMessage) => {
   try {
 
