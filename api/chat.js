@@ -3,13 +3,15 @@ import OpenAI from "openai";
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
+  defaultHeaders: {
+    "HTTP-Referer": "https://hk-chat-bot.vercel.app", // Required for OpenRouter free models
+    "X-Title": "HK Glam Studio Chatbot",
+  },
 });
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({
-      reply: "Method not allowed",
-    });
+    return res.status(405).json({ reply: "Method not allowed" });
   }
 
   try {
@@ -35,15 +37,10 @@ Business Details:
 - Prices are negotiable depending on services and requirements.
 
 STRICT RULES:
-- NEVER say:
-  "Would you like to book an appointment?"
+- NEVER say: "Would you like to book an appointment?"
 - NEVER suggest booking unless the user explicitly asks for booking.
 - NEVER ask unnecessary follow-up questions.
-- If user asks location, only answer location.
-- If user asks timings, only answer timings.
-- If user asks prices, only answer prices.
 - Keep responses short, direct, and natural.
-- Do not behave like a sales agent.
 `,
         },
         {
@@ -54,11 +51,9 @@ STRICT RULES:
     });
 
     const reply = completion.choices[0].message.content;
-
-    res.status(200).json({ reply });
+    return res.status(200).json({ reply });
   } catch (error) {
     console.log("FULL BACKEND ERROR:", error);
-
     return res.status(500).json({
       reply: "AI error occurred",
       error: error.message,
