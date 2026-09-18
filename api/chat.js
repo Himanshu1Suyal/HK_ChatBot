@@ -4,7 +4,7 @@ const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
   defaultHeaders: {
-    "HTTP-Referer": "https://hk-chat-bot.vercel.app", // Required for OpenRouter free models
+    "HTTP-Referer": "https://hk-chat-bot.vercel.app",
     "X-Title": "HK Glam Studio Chatbot",
   },
 });

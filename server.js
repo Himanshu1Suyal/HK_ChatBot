@@ -10,12 +10,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Initialize OpenAI client configured for OpenRouter
+// OpenRouter Client Configuration
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
   baseURL: "https://openrouter.ai/api/v1",
   defaultHeaders: {
-    "HTTP-Referer": "https://hk-chat-bot.vercel.app", // Required by OpenRouter for free models
+    "HTTP-Referer": "https://hk-chat-bot.vercel.app",
     "X-Title": "HK Glam Studio Chatbot",
   },
 });
@@ -24,11 +24,9 @@ app.get("/", (req, res) => {
   res.send("Backend working properly 🚀");
 });
 
-app.post("/chat", async (req, res) => {
+const handleChatRequest = async (req, res) => {
   try {
     const { message } = req.body;
-
-    console.log("BODY:", req.body);
 
     const completion = await client.chat.completions.create({
       model: "openrouter/free",
@@ -68,19 +66,23 @@ STRICT RULES:
     });
 
     const reply = completion.choices[0].message.content;
-
-    res.json({ reply });
+    return res.json({ reply });
   } catch (error) {
-    console.log("FULL AI ERROR:", error);
-
-    res.status(500).json({
+    console.log("FULL BACKEND ERROR:", error);
+    return res.status(500).json({
       reply: "AI error occurred",
       error: error.message,
     });
   }
-});
+};
+
+// Handle both /chat and /api/chat endpoints
+app.post("/chat", handleChatRequest);
+app.post("/api/chat", handleChatRequest);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+export default app;
