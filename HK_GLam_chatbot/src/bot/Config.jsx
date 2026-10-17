@@ -53,21 +53,30 @@ const config = {
       widgetFunc: () => (
         <div style={{ textAlign: "left" }}>
           <ul style={{ paddingLeft: "20px" }}>
-            <li>✂️ Haircut</li>
-            <li>🌿 Facial</li>
-            <li>👰 Bridal Makeup</li>
-            <li>💃 Party Makeup</li>
-            <li>💅 Nail Art</li>
-            <li>✨ Smoothing</li>
-            <li>🌟 Keratin</li>
+            <li>✨ Haircut</li>
+            <li>✨ Facial</li>
+            <li>✨ Bridal Makeup</li>
+            <li>✨ Party Makeup</li>
+            <li>✨ Nail Art</li>
+            <li>✨ Smoothening</li>
+            <li>✨ Keratin</li>
             <li>✨ Botox</li>
-            <li>💇 Hairstyle</li>
-            <li>🧴 Full body Wax</li>
-            <li>🦵 Half Legs wax</li>
-            <li>🎨 Hair colour</li>
+            <li>✨ Hairstyle</li>
+            <li>✨ Full body Wax</li>
+            <li>✨ Half Legs wax</li>
+            <li>✨ Hair colour</li>
             <li>✨ Hair Root touchup</li>
-            <li>💫 KeraSmooth</li>
+            <li>✨ KeraSmooth</li>
             <li>✨ Threading</li>
+            <li>✨ Bleach</li>
+            <li>✨ Blowdryer</li>
+            <li>✨ Clean up</li>
+            <li>✨ Curls</li>
+            <li>✨ D-Tan</li>
+            <li>✨ Hair Spa</li>
+            <li>✨ Hair Wash</li>
+            <li>✨ Iron</li>
+            <li>✨ NanoPlastia</li>
 
           </ul>
         </div>
@@ -99,22 +108,31 @@ const config = {
       widgetFunc: () => (
         <div style={{ textAlign: "left" }}>
           <ul style={{ paddingLeft: "20px" }}>
-            <li>✂️ Haircut: ₹300</li>
-            <li>🌿 Facial: ₹500 onwards</li>
-            <li>👰 Bridal Makeup: ₹6000 onwards</li>
-            <li>💃 Party Makeup: ₹1500 onwards</li>
-            <li>💅 Nail Art: ₹700 onwards</li>
-            <li>✨ Smoothing: ₹2000 onwards</li>
-            <li>🌟 Keratin: ₹1999 owards</li>
-            <li>✨ Botox 2499 onwards</li>
-            <li>💇 Hairstyle 500</li>
-            <li>🧴 Full body Wax 2500</li>
-            <li>🦵 Half Legs wax 300</li>
-            <li>🎨 Hair colour 2000</li>
-            <li>✨ Hair Root touchup 500</li>
-            <li>💫 KeraSmooth 2000 onwards</li>
-            <li>✨ Threading 30</li>
-          </ul>
+          <li>✨ Haircut: ₹300</li>
+          <li>✨ Facial: ₹500 onwards</li>
+          <li>✨ Bridal Makeup: ₹6000 onwards</li>
+          <li>✨ Party Makeup: ₹1500 onwards</li>
+          <li>✨ Nail Art: ₹700 onwards</li>
+          <li>✨ Smoothening: ₹2000 onwards</li>
+          <li>✨ Keratin: ₹1999 onwards</li>
+          <li>✨ Botox: ₹2499 onwards</li>
+          <li>✨ Hairstyle: ₹500</li>
+          <li>✨ Full body Wax: ₹2500</li>
+          <li>✨ Half Legs wax: ₹300</li>
+          <li>✨ Hair colour: ₹2000</li>
+          <li>✨ Hair Root touchup: ₹500</li>
+          <li>✨ KeraSmooth: ₹2499 onwards</li>
+          <li>✨ Threading: ₹30</li>
+          <li>✨ Bleach: ₹250</li>
+          <li>✨ Blowdryer: ₹200</li>
+          <li>✨ Clean up: ₹400</li>
+          <li>✨ Curls: ₹500</li>
+          <li>✨ D-Tan: ₹100</li>
+          <li>✨ Hair Spa: ₹500 onwards</li>
+          <li>✨ Hair Wash: ₹100</li>
+          <li>✨ Iron: ₹400 onwards</li>
+          <li>✨ NanoPlastia: ₹3000 onwards</li>
+        </ul>
         </div>
       ),
     },
